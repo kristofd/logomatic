@@ -14,13 +14,13 @@ Warning: Logomatic is experimental. Some features are not robustly implemented.
 Description
 -----------
 
-Logomatic is a Solr-based traffic log analysis tool. This project contains an utility that parses traffic logs (in Combined Log Format) and pushes the data to a local Solr server for searching, filtering, sorting and presentation. The project also contains a simple web application that lets you browse and view statistics about the traffic. 
+Logomatic is a Solr-based traffic log analysis tool. This project contains an utility that parses traffic logs (in Combined Log Format) and pushes the data to a local Solr server for searching, filtering, sorting and presentation. The project also contains a simple web application for viewing statistics about the  traffic. 
 
 
 Quick start
 -----------
 
-After downloading and building the indexing utility, put the log files you want to analyze in `logfiles` subdirectory.
+After downloading and building the indexing utility, put the log files you want to analyze in the `logfiles` subdirectory. NB The log files must be gzipped.
 
 Then start the Solr server by typing:
 
@@ -41,8 +41,11 @@ Use the widgets on the right side to browse and filter the traffic data. Hit Ent
 TODO
 -----------
 
-* The inital start and end dates are hard coded (look at solr/webapps/gui/gui.js at around line 80), these should instead depend on current data set.
-* Clean up JavaScript code, it is a mess (remember, this is an experimental project)
-* Reduce Solr memory consumption to allow for larger input data sets
-* Allow for filtering, sorting and presentation of additional fields
-* Simplify and improve the interaction
+* Improve build process (let users download Solr through Maven instead)
+* Update to latest Solr version
+* The inital start and end dates are hard coded (look at solr/webapps/gui/gui.js at around line 80), these should instead depend on the current data set
+* Clean up JavaScript code, it is a mess (remember, this is an experimental project :)
+* Autodetect and support also non-gzipped log files
+* Reduce Solr memory consumption to support larger input data sets
+* Allow simultaneous filtering, sorting and presentation of additional log fields
+* Simplify and improve user interaction
