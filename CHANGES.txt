@@ -1,0 +1,4 @@
+
+Version 0.1, jan 8, 2012
+
+* Initial release
