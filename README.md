@@ -30,9 +30,7 @@ As the server starts a stack trace will be printed - beginning with "logomatic/s
 
 Push log files to the sever by typing:
 
-	java -jar logomatic.jar [log file directory] [url to Solr]
-
-Adjust heap size (using the -Xmx parameter) as needed.
+	java -Xmx512M -jar logomatic.jar [log file directory] http://localhost:8080/solr
 
 Then open a browser and go to:
 
