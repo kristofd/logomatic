@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+	<link rel="stylesheet" type="text/css" media="screen" href="gui.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="jquery-ui-1.8.16.custom.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="jquery-ui-timepicker-addon.css" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="jquery-ui-1.8.16.custom.min.js"></script>
+	<script type="text/javascript" src="jquery-ui-timepicker-addon.js"></script>
+	<script type="text/javascript" src="jquery.flot.min.js"></script>
+	<script type="text/javascript" src="date.js"></script>
+	<script type="text/javascript" src="time.js"></script>
+	<script type="text/javascript" src="gui.js"></script>
+</head>
+<body>
+
+
+<form action="" id="form">
+
+<div class="container">
+
+<div class="centercolumn">
+	<div id="graph" style="width:700px;height:270px;margin-bottom:40px;"></div>
+</div>
+
+<div class="rightcolumn">
+<h2>From:</h2>
+<input id="from"></input>
+
+<h2>To:</h2>
+<input id="to"></input>
+
+<h2>Requests per:</h2>
+<select name="resolution" id="resolution">
+	<option value="%2B1MONTH">month</option>
+	<option value="%2B7DAY">week</option>	
+	<option value="%2B1DAY">day</option>
+	<option value="%2B1HOUR">hour</option>
+	<option value="%2B60SECOND">minute</option>
+	<option value="%2B1SECOND">second</option>
+</select>
+
+<h2>Total requests:</h2>
+<div id="total">&nbsp;</div>
+
+<h2>Stats:</h2>
+<ul>
+<li>max: <span id="maxvalue">&nbsp;<span></li>
+<li>avg: <span id="avgvalue">&nbsp;</span></li>
+</ul>
+
+</div>
+</div>
+<div class="container">
+<div class="centercolumn">
+	<div id="secondarygraph" style="width:700px;height:270px;margin-bottom:40px;"></div>
+</div>
+
+<div class="rightcolumn">
+<h2>Group by:</h2>
+<select name="groupfield" id="groupfield">
+	<option value="filetype">file type</option>
+	<option value="responsecode" selected="selected">response code</option>
+	<option value="dayofweek">day of week</option>
+	<option value="weeknumber">weeknumber</option>	
+	<option value="monthofyear">month of year</option>
+	<option value="dayofmonth">day of month</option>
+	<option value="hourofday">hour of day</option>
+</select>
+<br/>
+
+<h2>Filter by:</h2>
+<select name="filterfield" id="filterfield">
+	<option value="">none</option>
+	<option value="filetype">file type</option>
+	<option value="responsecode">response code</option>
+	<option value="dayofweek">day of week</option>
+	<option value="weeknumber">weeknumber</option>	
+	<option value="month">month</option>
+	<option value="dayofmonth">day of month</option>
+	<option value="hourofday">hour of day</option>
+</select>
+
+<fieldset id="filtervalues">
+</fieldset>	
+</div>
+</div>
+
+<div class="container">
+<div class="centercolumn">
+	<div class="textlist">
+		<h2>Client IPs</h2>
+		<div id="iplist"></div>
+	</div>
+	<div class="textlist">
+		<h2>Resources</h2>
+		<div id="urllist"></div>
+	</div>
+</div>
+<div class="rightcolumn">
+</div>
+</div>
+
+
+<div class="container">
+	<div id="responsetime"></div>
+</div>
+
+<div class="container">
+	<div id="debug"></div>
+</div>
+
+
+</form>
+
+</body>
+</html>

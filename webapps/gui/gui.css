@@ -1,0 +1,97 @@
+﻿body { 
+	margin: auto;
+	padding: 10px;
+	font-family: Helvetica, sans-serif;
+	font-size: 12px;
+	width: 960px;
+	box-shadow: 1px 1px 5px 1px rgba(128, 128, 128, 0.7); 
+}
+
+h2 {
+	margin: 2px 0px 5px 0px;
+}
+
+#from, #to {
+	margin: 0px 0px 15px 0px;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+li {
+	margin: 0;
+	padding: 1px 0px;
+}
+
+select {
+	margin: 0px 0px 15px 0px;
+}
+
+input[id="from"], input[id="to"] {
+	border: 0px;
+	font-family: Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+input[type="checkbox"]{
+	position: relative;
+	top: 1px;
+}
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+legend {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 11px;
+	margin-bottom: 8px;
+}
+
+#maxvalue, #total {
+	font-size: 13px;
+	margin: 0px 0px 15px 0px;
+}
+
+.textlist {
+	margin: 0px 0px 0px 45px;
+	float: left;
+	overflow-x: hidden; 
+	width: 325px;
+}
+
+#iplist, #urllist {
+	margin: 10px 0px 0px 2px;
+}
+
+
+#debug {
+	color: white;
+}
+
+.container {
+	clear: both;
+	width: 100%;
+	margin: 10px 0px;
+}
+
+.centercolumn {
+	float: left;
+	width: 740px;
+	padding-left: 20px;
+}
+
+.rightcolumn {
+	float: left;
+	width: 200px;
+}
+
+
+
+
