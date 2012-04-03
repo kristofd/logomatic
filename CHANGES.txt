@@ -1,4 +1,11 @@
 
+Version 0.2, apr 4, 2012
+
+* Download Solr and Jetty using Maven
+* Updated to Solr 3.5 and Jetty 8.1.2
+* Support both plain and gzipped log files
+
+
 Version 0.1, jan 8, 2012
 
 * Initial release

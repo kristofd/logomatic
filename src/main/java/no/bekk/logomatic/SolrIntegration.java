@@ -9,8 +9,14 @@ import org.apache.solr.client.solrj.impl.CommonsHttpSolrServer;
 public class SolrIntegration {
 	
 	CommonsHttpSolrServer server = null;
-
+	boolean isSimulated = false;
+	
 	static final Logger log = Logger.getLogger(SolrIntegration.class);
+
+	public SolrIntegration(String url, boolean isSimulated) {
+		this.isSimulated = isSimulated;
+		new SolrIntegration(url);
+	}
 	
 	public SolrIntegration(String url) {
 		try {
@@ -24,8 +30,12 @@ public class SolrIntegration {
 	
 	public void send(List<LogLineBean> docs) {
 		try {
-			server.addBeans(docs);
-			server.commit();
+			if (isSimulated) {
+				log.info("Simulating sending " + docs.size() + " docs.");
+			} else {
+				server.addBeans(docs);
+				server.commit();
+			}
 		} catch (Exception e) {
 			log.error("Error sending log lines: " + e);
 		}

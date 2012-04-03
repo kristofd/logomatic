@@ -24,6 +24,7 @@ public class LogLineParser {
 	static final Logger log = Logger.getLogger(LogLineParser.class);
 
 	public LogLineParser() {
+		// follow ISO week numbering scheme
 		calendar.setMinimalDaysInFirstWeek(4);
 		calendar.setFirstDayOfWeek(Calendar.MONDAY);
 	}
@@ -51,10 +52,10 @@ public class LogLineParser {
 
 			calendar.setTime(date);
 			bean.monthofyear = monthName[calendar.get(Calendar.MONTH)];
-			bean.weeknumber = "" + calendar.get(Calendar.WEEK_OF_YEAR);
-			bean.dayofmonth = "" + calendar.get(Calendar.DAY_OF_MONTH);
+			bean.weeknumber = String.valueOf(calendar.get(Calendar.WEEK_OF_YEAR));
+			bean.dayofmonth = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
 			bean.dayofweek = dayName[calendar.get(Calendar.DAY_OF_WEEK)-1];
-			bean.hourofday = "" + calendar.get(Calendar.HOUR_OF_DAY);
+			bean.hourofday = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY) + 1);
 
 			startPos = endPos+3;
 			endPos = line.indexOf(" ", startPos);
@@ -62,11 +63,10 @@ public class LogLineParser {
 
 			startPos = endPos+1;
 			endPos = line.indexOf(" ", startPos);
-			temp = line.substring(startPos, endPos);
-			bean.url = temp;
-
+			bean.url = line.substring(startPos, endPos);
+			
 			// decide file type, based on URL
-			bean.filetype = getFileType(temp);
+			bean.filetype = getFileType(bean.url);
 			
 			startPos = endPos+1;
 			endPos = line.indexOf("\"", startPos);
@@ -98,28 +98,19 @@ public class LogLineParser {
 		}
 	}
 	
-	public String getFileType(String input) {		
+	public String getFileType(String url) {		
 		// if any parameters, strip them
-		int pos = input.indexOf("?");
+		int pos = url.indexOf("?");
 		if (pos != -1) {
-			input = input.substring(0, pos);
+			url = url.substring(0, pos);
 		}
 		
 		// if no file extension -> this is html
-		pos = input.lastIndexOf(".");
+		pos = url.lastIndexOf(".");
 		if (pos == -1) {
 			return "html";
 		}
 
-		return input.substring(pos+1).toLowerCase();
+		return url.substring(pos+1).toLowerCase();
 	}
-
-	public String replace(String input, String pattern, String replacement) {
-		int pos = input.indexOf(pattern);
-		while (pos != -1) {
-			input = input.substring(0, pos) + replacement + input.substring(pos + pattern.length());
-			pos = input.indexOf(pattern, pos + pattern.length() + 1);
-		}
-		return input;
-	}	
 }

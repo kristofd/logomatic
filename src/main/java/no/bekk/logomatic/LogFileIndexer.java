@@ -10,7 +10,7 @@ public class LogFileIndexer {
 		
 		SolrIntegration solrIntegration = new SolrIntegration(url);
 		LogFileParser fileParser = new LogFileParser(solrIntegration);
-		fileParser.parseAndSend(directoryName);
+		fileParser.sendFiles(directoryName);
 	}
 
 	public static void main(String[] args) {
